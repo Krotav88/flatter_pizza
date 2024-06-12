@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_pizza/theme/colors.dart';
 
 class MyButton extends StatelessWidget {
   final String text;
@@ -11,9 +12,13 @@ class MyButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 228, 97, 92),
-            borderRadius: BorderRadius.circular(10)),
-        padding: const EdgeInsets.all(20),
+          color: secondaryColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        padding: const EdgeInsets.symmetric(
+          vertical: 10,
+          horizontal: 20,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
