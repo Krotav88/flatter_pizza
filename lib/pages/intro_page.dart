@@ -27,7 +27,9 @@ class IntroPage extends StatelessWidget {
               ),
               Text('TUT VSE EBAT\' KAK VKUSNO',
                   style: GoogleFonts.dmSerifDisplay(
-                      fontSize: 44, color: Colors.white)),
+                    fontSize: 44,
+                    color: Colors.white,
+                  )),
               Text(
                 'Братан, жизнь — это движение. Держи удар, помогай своим и не сдавайся никогда',
                 style: TextStyle(color: Colors.grey[300], height: 2),

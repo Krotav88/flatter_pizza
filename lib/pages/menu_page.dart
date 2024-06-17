@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_pizza/components/button.dart';
+import 'package:flutter_application_pizza/components/food_item.dart';
+import 'package:flutter_application_pizza/models/food.dart';
 import 'package:flutter_application_pizza/theme/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +13,33 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
+  List foodMenu = [
+    Food(
+      name: 'Ognivo dragona',
+      price: '250',
+      imagePath: 'lib/images/sushi-3.png',
+      rating: '5.5',
+    ),
+    Food(
+      name: 'Bambuk',
+      price: '380',
+      imagePath: 'lib/images/sushi-4.png',
+      rating: '5.1',
+    ),
+    Food(
+      name: 'Yaiki panda',
+      price: '180',
+      imagePath: 'lib/images/sushi-1.png',
+      rating: '10/10',
+    ),
+    Food(
+      name: 'Kimono satana',
+      price: '480',
+      imagePath: 'lib/images/sushi-2.png',
+      rating: '11/10',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +60,7 @@ class _MenuPageState extends State<MenuPage> {
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //banner
           Container(
@@ -50,7 +80,7 @@ class _MenuPageState extends State<MenuPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '32% sale epta',
+                      '32% salo epta',
                       style: GoogleFonts.dmSerifDisplay(
                         fontSize: 24,
                         color: Colors.white,
@@ -78,16 +108,48 @@ class _MenuPageState extends State<MenuPage> {
             child: TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
+                  borderSide: const BorderSide(color: Colors.white),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white),
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
             ),
           ),
+
+          const SizedBox(height: 25.0),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Text(
+              "Sho pozhrat'",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.grey[800],
+                fontSize: 18,
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 10.0),
+
+          Expanded(
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: foodMenu.length,
+              itemBuilder: (context, index) => FoodItem(
+                food: foodMenu[index],
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 20.0),
         ],
       ),
     );
